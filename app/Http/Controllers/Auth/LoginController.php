@@ -37,8 +37,12 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
-    /*public function username() // houni béch ta3mil overrigth a3la nafd il fuction ili fil folger 'AuthenticatesUsers.php'
+    public function username() // houni béch ta3mil overrigth a3la nafd il fuction ili fil folger 'AuthenticatesUsers.php'
     {
-        return 'mobil';
-    }*/
+        // chou howa il request dima ijik haka ['name'=>'yassine','_token'=>'jfjfjfjf','email'=>'kchoau@li']
+        $value=request()->input('identity');
+        $field=filter_var($value,FILTER_VALIDATE_EMAIL)?'email':'mobil';
+        request()->merge([$field=>$value]);
+        return $field;
+    }
 }

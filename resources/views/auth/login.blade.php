@@ -12,12 +12,12 @@
                         @csrf <!--hédhi number kbir hédhou pour il mittelwire fibéli kima il session-->
 
                         <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">email</label>
+                            <label for="identity" class="col-md-4 col-form-label text-md-right">email or Number</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autofocus>
+                                <input id="identity" type="text" class="form-control @error('identity') is-invalid @enderror" name="identity" value="{{ old('identity') }}" required autocomplete="email" autofocus>
 
-                                @error('email')
+                                @error('identity')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
